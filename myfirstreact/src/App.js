@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 
 import Person from './Person/Person'
@@ -24,11 +24,21 @@ function App(props) {
     newPersons.splice(indexToRemove, 1);
     setPersons(newPersons);
   }
+  
 
+  const useNameChangeHandler = useCallback(
+    (event, index) => {
+      const personIndex = persons.findIndex(p => {
+        return p.id === index;
+      })
+      const person = {...persons[personIndex]}
 
-  // const useNameChangeHandler = (event)  => {
-  //   setUsername(event.target.value);
-  // }
+      person.name = event.target.value
+      const newPersons = [...persons]
+      newPersons[personIndex] = person
+      setPersons(newPersons)
+    }
+  )
   const doseShow = showPerson
   const toggleHandler = ()  => {
     setShowPerson(!doseShow)
@@ -44,6 +54,7 @@ function App(props) {
           name={person.name}
           age={person.age}
           click={() => deletePerson(index)}
+          changed={useNameChangeHandler.bind(this)}
           key={person.id}/>
         ))}
     </div>
