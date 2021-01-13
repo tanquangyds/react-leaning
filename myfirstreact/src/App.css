@@ -2,3 +2,27 @@
   text-align: center;
   color: red;
 }
+
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.button {
+  background-color:green; 
+  padding: 16px;
+  margin: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.button:hover {
+  background-color:lightgreen;
+  color: black;
+}
