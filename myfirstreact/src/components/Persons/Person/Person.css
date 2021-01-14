@@ -1,12 +1,12 @@
-/* .Person {
+.Person {
     margin: 16px auto;
     padding: 16px;
     width: 500px;
     border: 1px solid rgb(173, 171, 171);
-    background-color: #ccc;
-    color: black;
+    background-color: rgb(250, 250, 250);
+    color: #333;
 }
 
 .Person .input {
     outline: none;
-} */
+}

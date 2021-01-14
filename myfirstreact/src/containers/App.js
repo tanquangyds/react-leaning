@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import Person from './Person/Person'
-// import UserInput from './UserInput/UserInput';
-// import UserOutput from './UserOutput/UserOutput';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 function App(props) {
   
@@ -40,38 +39,22 @@ function App(props) {
   const toggleHandler = ()  => {
     setShowPerson(!doseShow)
   }
-  const style = {
-    backgroundColor: 'green',
-    padding: '16px',
-    margin: '16px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    color: 'white',
-    border: 'none',
-    outline: 'none',
-  }
+  
   let person = null;
 
   if (showPerson) {
     person = 
-      <div>
-        {persons.map((person, index) => (
-          <Person 
-          name={person.name}
-          age={person.age}
-          click={() => deletePerson(index)}
-          changed={(event) => nameChangeHandler(event, person.id)}
-          key={person.id}/>
-        ))}
-    </div>
-    style.backgroundColor = 'red'
+        <Persons 
+         persons={persons}
+         click={deletePerson}
+         changed={nameChangeHandler}/>
   }
   return (
 
     <div className="App">
-      <button style= {style} onClick={toggleHandler}
-      alt={showPerson}
-      >Toggle</button>
+      <Cockpit 
+       toggled={toggleHandler}
+       showPerson={showPerson}/>
       {person}
     </div>
   )
