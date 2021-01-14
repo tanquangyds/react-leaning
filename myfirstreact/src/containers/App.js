@@ -13,7 +13,7 @@ function App(props) {
       {id: 2, name: 'Sushi', age: '0.5'},
     ]
   )
-  const [showPerson, setShowPerson] = useState(true)
+  const [showPerson, setShowPerson] = useState(false)
   
   console.log(persons)
 
