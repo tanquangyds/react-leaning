@@ -14,6 +14,7 @@ function App(props) {
     ]
   )
   const [showPerson, setShowPerson] = useState(false)
+  const [showCockpit, setShowCockpit] = useState(true)
   
   console.log(persons)
 
@@ -52,9 +53,12 @@ function App(props) {
   return (
 
     <div className="App">
-      <Cockpit 
+      
+      <button onClick={() => setShowCockpit(false)} >Remove Cockpit</button>
+      {showCockpit ? <Cockpit 
+        person={persons}
        toggled={toggleHandler}
-       showPerson={showPerson}/>
+       showPerson={showPerson}/> : null}
       {person}
     </div>
   )
